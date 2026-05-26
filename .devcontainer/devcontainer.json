@@ -1,0 +1,20 @@
+{
+	"name": "Dungeon-Verse",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/hspaans/devcontainer-features/django-upgrade:2": {},
+		"ghcr.io/devcontainers-extra/features/poetry:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mongodb.mongodb-vscode",
+				"openai.chatgpt"
+			]
+		}
+	},
+	// "forwardPorts": [8000, 27017],
+	"postCreateCommand": "poetry install --no-root"
+}

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/python:3-3.14-trixie
+    env_file:
+      - ../.env
+    volumes:
+      - ./.bashrc:/home/vscode/.bashrc
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    network_mode: service:db
+
+  db:
+    image: mongo:latest
+    env_file:
+      - ../.env
+    restart: unless-stopped
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mongodb-data:
