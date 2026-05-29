@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("APP_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("APP_DEBUG", "True") in ("true", "True", "TRUE", 1)
 
-ALLOWED_HOSTS = os.getenv("APP_ALLOWED_HOSTS", "").split(',')
+ALLOWED_HOSTS = [ h.strip() for h in os.getenv("APP_ALLOWED_HOSTS", "").split(',')]
 
 
 # Application definition
